@@ -9,17 +9,42 @@
 import UIKit
 
 class TitleTextField: UITextField, UITextFieldDelegate {
+    
+    var placeholderText = "tap to name your goal"
+    
+    
+    required init(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)!
+        
+        font = UIFont(name: "Helvetica-Neue", size: 25)
+        
+    }
 
     
-    var randomElement: Bool = true
- 
+    func textFieldDidBeginEditing(textField: UITextField) {
+        
+        if textField.text == placeholderText {
+            textField.text = ""
+        }
+        
+        
+    }
+    
+    // guarantees text in field
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
+        let validText = NSCharacterSet.alphanumericCharacterSet()
+        let emojis = NSCharacterSet.symbolCharacterSet()
+        
+        if (textField.text?.rangeOfCharacterFromSet(validText) == nil) && (textField.text?.rangeOfCharacterFromSet(emojis) == nil) {
+            
+            textField.text = placeholderText
+            
+        }
+        
         textField.resignFirstResponder()
-        
-        print("text field return pressed")
-        
         return true
     }
+    
 
 }

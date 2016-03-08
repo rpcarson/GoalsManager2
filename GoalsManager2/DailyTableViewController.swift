@@ -11,22 +11,31 @@ import UIKit
 class DailyTableViewController: UITableViewController {
 
     
-    
    
     func configureView() {
     
         parentViewController?.navigationItem.title = "Goals for the Day"
         parentViewController?.navigationItem.setRightBarButtonItem(UIBarButtonItem(title: "Add/Edit", style: .Plain, target: self, action: "addEditButton"), animated: true)
         
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Cancel"
+        parentViewController?.navigationItem.backBarButtonItem = backButton
         
         navigationController?.navigationBar.translucent = false
 
+
+        
+    }
+   
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         configureView()
         
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,7 +55,6 @@ class DailyTableViewController: UITableViewController {
         return GoalsData.dailyGoalsName.count
     }
 
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dailyCell", forIndexPath: indexPath) as! DailyCell
 
@@ -56,41 +64,16 @@ class DailyTableViewController: UITableViewController {
         return cell
     }
 
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        GoalsData.isNew = false
+        GoalsData.selectedCell = GoalsData.dailyGoalsName[indexPath.row]
+        GoalsData.selectedCellIndex = indexPath.row
+        
+        print("did select daily goal \(GoalsData.selectedCell)")
+        
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
 
     
     // MARK: - Navigation
@@ -98,20 +81,13 @@ class DailyTableViewController: UITableViewController {
     
     func addEditButton() {
         
+        GoalsData.isNew = true
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let editVC: UIViewController = storyboard.instantiateViewControllerWithIdentifier("editVC") as! EditViewController
-        presentViewController(editVC, animated: true, completion: nil)
+        let editVC: EditViewController = storyboard.instantiateViewControllerWithIdentifier("editVC") as! EditViewController
         
+        navigationController?.pushViewController(editVC, animated: true)
         print("add button pressed")
-    }
-
-   
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        
-        if let destinationVC = segue.destinationViewController as? EditViewController {
-            
-            
-        }
         
     }
     

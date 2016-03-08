@@ -9,6 +9,7 @@
 import Foundation
 
 
+
 class GoalsData {
     
     static var dailyGoalsName: [String] = []
@@ -19,6 +20,10 @@ class GoalsData {
     
     static var completedGoalsName: [String] = []
     static var completedGoalsDetails: [String:AnyObject] = [:]
+    
+    static var selectedCell: String?
+    static var selectedCellIndex: Int?
+    static var isNew: Bool = true
     
 }
 
@@ -74,6 +79,7 @@ class DictionaryManager {
 }
 
 class DateFormatter {
+    
     
     static func getDaysAndHoursString(date: NSDate) -> String {
         

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -22,10 +23,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH2-55-Ojt">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UH2-55-Ojt">
                                             <rect key="frame" x="279" y="11" width="42" height="21"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -36,7 +37,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="titleLabel" destination="UH2-55-Ojt" id="yto-jd-ZV5"/>
-                                    <segue destination="1O5-tn-YxH" kind="show" id="q7J-c7-IDA"/>
+                                    <segue destination="1O5-tn-YxH" kind="show" identifier="dailyEditSegue" id="q7J-c7-IDA"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -125,27 +126,114 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="add a name" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0GT-m1-pEe" userLabel="TitleField">
-                                <rect key="frame" x="160" y="141" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="add a name" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0GT-m1-pEe" userLabel="TitleField" customClass="TitleTextField" customModule="GoalsManager2" customModuleProvider="target">
+                                <rect key="frame" x="160" y="91" width="280" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add a description and details for your goal here" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tw-7D-8Ne">
+                                <rect key="frame" x="20" y="412" width="560" height="131"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="131" id="jfI-l8-TSd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8g-qw-X17" customClass="DeadlineCircleButton" customModule="GoalsManager2" customModuleProvider="target">
+                                <rect key="frame" x="200" y="200" width="200" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="ctw-Lm-9D1"/>
+                                    <constraint firstAttribute="width" secondItem="V8g-qw-X17" secondAttribute="height" multiplier="1:1" id="h62-0a-j9j"/>
+                                    <constraint firstAttribute="width" constant="200" id="ndo-bR-rie"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="date added" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V5U-1P-4Jb">
+                                <rect key="frame" x="257" y="129" width="87" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmG-Rs-h6E">
+                                <rect key="frame" x="20" y="370" width="109" height="30"/>
+                                <state key="normal" title="Edit Description"/>
+                                <connections>
+                                    <segue destination="dBk-mW-esJ" kind="show" identifier="summarySegue" id="d7j-V2-cgJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0GT-m1-pEe" firstAttribute="centerY" secondItem="5UC-mz-ITC" secondAttribute="centerY" constant="-144" id="F5k-Gb-d3x"/>
+                            <constraint firstItem="V5U-1P-4Jb" firstAttribute="centerY" secondItem="5UC-mz-ITC" secondAttribute="centerY" constant="-110.5" id="077-Vt-9Aj"/>
+                            <constraint firstItem="6tw-7D-8Ne" firstAttribute="top" secondItem="tmG-Rs-h6E" secondAttribute="bottom" constant="12" id="0SG-I8-1Zm"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="tmG-Rs-h6E" secondAttribute="leading" id="ApD-lG-QGC"/>
+                            <constraint firstItem="V5U-1P-4Jb" firstAttribute="centerX" secondItem="5UC-mz-ITC" secondAttribute="centerX" id="BSK-gx-fVR"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="6tw-7D-8Ne" secondAttribute="trailing" id="EwH-zc-bOL"/>
+                            <constraint firstItem="0GT-m1-pEe" firstAttribute="centerY" secondItem="5UC-mz-ITC" secondAttribute="centerY" constant="-194" id="F5k-Gb-d3x"/>
                             <constraint firstAttribute="trailingMargin" secondItem="0GT-m1-pEe" secondAttribute="trailing" constant="140" id="LxB-kK-o9D"/>
+                            <constraint firstItem="V8g-qw-X17" firstAttribute="centerX" secondItem="5UC-mz-ITC" secondAttribute="centerX" id="M1q-Om-L9x"/>
+                            <constraint firstItem="V5U-1P-4Jb" firstAttribute="top" secondItem="0GT-m1-pEe" secondAttribute="bottom" constant="8" id="SE3-4D-9Qz"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="6tw-7D-8Ne" secondAttribute="leading" id="Sco-ci-nNU"/>
                             <constraint firstItem="0GT-m1-pEe" firstAttribute="centerX" secondItem="5UC-mz-ITC" secondAttribute="centerX" id="aGK-Xs-pT6"/>
                             <constraint firstAttribute="leadingMargin" secondItem="0GT-m1-pEe" secondAttribute="leading" constant="-140" id="dn9-6z-oCf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tmG-Rs-h6E" secondAttribute="trailing" constant="451" id="ohQ-5M-TM5"/>
+                            <constraint firstItem="6tw-7D-8Ne" firstAttribute="centerY" secondItem="5UC-mz-ITC" secondAttribute="centerY" constant="177.5" id="pOO-Mf-nAD"/>
+                            <constraint firstItem="V8g-qw-X17" firstAttribute="centerY" secondItem="5UC-mz-ITC" secondAttribute="centerY" id="r3u-2O-OpR"/>
+                            <constraint firstItem="6tw-7D-8Ne" firstAttribute="centerX" secondItem="5UC-mz-ITC" secondAttribute="centerX" id="xgC-1R-V8D"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="077-Vt-9Aj"/>
+                                <exclude reference="ohQ-5M-TM5"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
-                        <outlet property="titleTextField" destination="0GT-m1-pEe" id="5Ax-CI-RzJ"/>
+                        <outlet property="dateAddedLabel" destination="V5U-1P-4Jb" id="JTa-Uz-4T7"/>
+                        <outlet property="summaryLabel" destination="6tw-7D-8Ne" id="duN-iB-1E2"/>
+                        <outlet property="textField" destination="0GT-m1-pEe" id="nYp-XJ-FJJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WMl-H6-rmn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3456" y="-2112"/>
+        </scene>
+        <!--Summary Edit View Controller-->
+        <scene sceneID="7eR-JI-d8T">
+            <objects>
+                <viewController id="dBk-mW-esJ" customClass="SummaryEditViewController" customModule="GoalsManager2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="EsO-0w-AYa"/>
+                        <viewControllerLayoutGuide type="bottom" id="811-tW-lUD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BS4-ne-fYf">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="add a description and details for your goal here" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Z10-ZS-h14" customClass="SummaryTextView" customModule="GoalsManager2" customModuleProvider="target">
+                                <rect key="frame" x="20" y="72" width="560" height="311"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="leadingMargin" secondItem="Z10-ZS-h14" secondAttribute="leading" id="FTD-lG-MUg"/>
+                            <constraint firstItem="Z10-ZS-h14" firstAttribute="centerY" secondItem="BS4-ne-fYf" secondAttribute="centerY" constant="-72.5" id="H5L-34-Ami"/>
+                            <constraint firstItem="Z10-ZS-h14" firstAttribute="centerX" secondItem="BS4-ne-fYf" secondAttribute="centerX" id="cRl-d3-3On"/>
+                            <constraint firstItem="Z10-ZS-h14" firstAttribute="top" secondItem="EsO-0w-AYa" secondAttribute="bottom" constant="8" id="fbm-da-PIP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Z10-ZS-h14" secondAttribute="trailing" id="zXE-Uz-nwh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="summaryTextView" destination="Z10-ZS-h14" id="5gk-48-Tz8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wTw-cT-GjK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4176" y="-2112"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WFw-CL-7z3">

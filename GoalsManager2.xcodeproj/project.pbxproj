@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		5B31D99A1C87987C00FFB6CA /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31D9991C87987C00FFB6CA /* DailyCell.swift */; };
 		5B31D99D1C87CBC600FFB6CA /* TitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31D99C1C87CBC600FFB6CA /* TitleTextField.swift */; };
+		5B790C9E1C8BB80900D9C2D1 /* DeadlineCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B790C9D1C8BB80900D9C2D1 /* DeadlineCircleView.swift */; };
+		5B98B3D11C8E54980015D4A3 /* SummaryEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98B3D01C8E54980015D4A3 /* SummaryEditViewController.swift */; };
+		5B98B3D31C8E5B410015D4A3 /* SummaryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98B3D21C8E5B410015D4A3 /* SummaryTextView.swift */; };
 		5BEBC19C1C867EFF0032495D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBC19B1C867EFF0032495D /* AppDelegate.swift */; };
 		5BEBC1A11C867EFF0032495D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5BEBC19F1C867EFF0032495D /* Main.storyboard */; };
 		5BEBC1A31C867EFF0032495D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5BEBC1A21C867EFF0032495D /* Assets.xcassets */; };
@@ -24,6 +27,9 @@
 /* Begin PBXFileReference section */
 		5B31D9991C87987C00FFB6CA /* DailyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
 		5B31D99C1C87CBC600FFB6CA /* TitleTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTextField.swift; sourceTree = "<group>"; };
+		5B790C9D1C8BB80900D9C2D1 /* DeadlineCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineCircleView.swift; sourceTree = "<group>"; };
+		5B98B3D01C8E54980015D4A3 /* SummaryEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryEditViewController.swift; sourceTree = "<group>"; };
+		5B98B3D21C8E5B410015D4A3 /* SummaryTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTextView.swift; sourceTree = "<group>"; };
 		5BEBC1981C867EFF0032495D /* GoalsManager2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalsManager2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5BEBC19B1C867EFF0032495D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5BEBC1A01C867EFF0032495D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +67,8 @@
 			isa = PBXGroup;
 			children = (
 				5B31D99C1C87CBC600FFB6CA /* TitleTextField.swift */,
+				5B790C9D1C8BB80900D9C2D1 /* DeadlineCircleView.swift */,
+				5B98B3D21C8E5B410015D4A3 /* SummaryTextView.swift */,
 			);
 			name = "UI Element Classes";
 			sourceTree = "<group>";
@@ -96,10 +104,11 @@
 		5BEBC1B51C8685220032495D /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5BEBC1B31C86851C0032495D /* EditViewController.swift */,
 				5BEBC1AD1C8684CC0032495D /* DailyTableViewController.swift */,
 				5BEBC1AF1C8684DD0032495D /* LongTermTableViewController.swift */,
 				5BEBC1B11C8684EA0032495D /* CompletedTableViewController.swift */,
+				5BEBC1B31C86851C0032495D /* EditViewController.swift */,
+				5B98B3D01C8E54980015D4A3 /* SummaryEditViewController.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -201,11 +210,14 @@
 				5BEBC1AE1C8684CC0032495D /* DailyTableViewController.swift in Sources */,
 				5BEBC1B91C8685E60032495D /* DataManager.swift in Sources */,
 				5B31D99D1C87CBC600FFB6CA /* TitleTextField.swift in Sources */,
+				5B98B3D11C8E54980015D4A3 /* SummaryEditViewController.swift in Sources */,
 				5B31D99A1C87987C00FFB6CA /* DailyCell.swift in Sources */,
 				5BEBC1B21C8684EA0032495D /* CompletedTableViewController.swift in Sources */,
 				5BEBC1B41C86851C0032495D /* EditViewController.swift in Sources */,
 				5BEBC1B01C8684DD0032495D /* LongTermTableViewController.swift in Sources */,
+				5B790C9E1C8BB80900D9C2D1 /* DeadlineCircleView.swift in Sources */,
 				5BEBC19C1C867EFF0032495D /* AppDelegate.swift in Sources */,
+				5B98B3D31C8E5B410015D4A3 /* SummaryTextView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
