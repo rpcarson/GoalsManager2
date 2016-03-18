@@ -29,20 +29,25 @@ class EditViewController: UIViewController {
     
     func configureLabels() {
         
-        if let name = textField?.text {
+        textField.text = GoalsData.selectedCell
+        
+        if let name = textField.text {
             
-            let summary = DictionaryManager.getFromDictionary(.Summary, goalType: .Daily, goalName: name) as! String
-            
-            let storedDate = DictionaryManager.getFromDictionary(.Date, goalType: .Daily, goalName: name) as! String
-            
-            if GoalsData.isNew {
+            if Status.isNew {
                 let date = NSDate()
                 dateAddedLabel.text = "Created: \(DateFormatter.getDaysAndHoursString(date))"
                 textField?.text = textField?.placeholderText
                 summaryLabel.text = summaryTextView.placeholderText
                 print("isNew labels used")
             } else {
-                textField?.text = GoalsData.selectedCell
+
+                let summary = DictionaryManager.getFromDictionary(.Summary, goalType: .Daily, goalName: name) as! String
+                
+                let storedDate = DictionaryManager.getFromDictionary(.Date, goalType: .Daily, goalName: name) as! String
+                
+                print("summary:\(summary)")
+                print("date: \(storedDate)")
+               
                 dateAddedLabel.text = storedDate
                 summaryLabel.text = summary
                 print("isNotNew labels used")
@@ -61,7 +66,7 @@ class EditViewController: UIViewController {
         
         textField.delegate = textField
         
-        print("editor loaded: isNew \(GoalsData.isNew)")
+        print("editor loaded: isNew \(Status.isNew)")
         
     }
     
@@ -90,15 +95,24 @@ class EditViewController: UIViewController {
     func done() {
         
 
-        if GoalsData.isNew {
+        if Status.isNew {
             
             // save values to dictionary
 
             if let name = textField?.text {
                 
                 // add title to dictionary and goals array
+                
+                if Status.isDaily == true {
                 GoalsData.dailyGoalsName.append(name)
                 DictionaryManager.addToDictionary(.Name, goalType: .Daily, data: name, goalName: name)
+                    
+                } else {
+                    
+                    GoalsData.longtermGoalsName.append(name)
+                    DictionaryManager.addToDictionary(.Name, goalType: .Daily, data: name, goalName: name)
+                    
+                }
                 
                 // add date to dictionary
                 if let date = dateAddedLabel.text {
@@ -124,6 +138,9 @@ class EditViewController: UIViewController {
                 
                 let name = DictionaryManager.getFromDictionary(.Name, goalType: .Daily, goalName: title) as! String
                 let summary = DictionaryManager.getFromDictionary(.Summary, goalType: .Daily, goalName: title) as! String
+                
+                print(name)
+                print(summary)
                 
                 // update name for dictionary and array
                 if title != name {

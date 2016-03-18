@@ -10,8 +10,7 @@ import UIKit
 
 class DailyTableViewController: UITableViewController {
 
-    
-   
+
     func configureView() {
     
         parentViewController?.navigationItem.title = "Goals for the Day"
@@ -35,7 +34,12 @@ class DailyTableViewController: UITableViewController {
     }
     
     override func viewWillAppear(animated: Bool) {
+        
+        
+        configureView()
         tableView.reloadData()
+        parentViewController?.navigationItem.title = "Goals for the Day"
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -58,7 +62,6 @@ class DailyTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("dailyCell", forIndexPath: indexPath) as! DailyCell
 
-
         cell.titleLabel.text = GoalsData.dailyGoalsName[indexPath.row]
         
         return cell
@@ -67,11 +70,12 @@ class DailyTableViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        GoalsData.isNew = false
+        Status.isDaily = true
+        Status.isNew = false
         GoalsData.selectedCell = GoalsData.dailyGoalsName[indexPath.row]
         GoalsData.selectedCellIndex = indexPath.row
         
-        print("did select daily goal \(GoalsData.selectedCell)")
+        print("did select daily goal / selected cell: \(GoalsData.selectedCell)")
         
     }
 
@@ -81,13 +85,14 @@ class DailyTableViewController: UITableViewController {
     
     func addEditButton() {
         
-        GoalsData.isNew = true
+        Status.isNew = true
+        Status.isDaily = true
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let editVC: EditViewController = storyboard.instantiateViewControllerWithIdentifier("editVC") as! EditViewController
         
         navigationController?.pushViewController(editVC, animated: true)
-        print("add button pressed")
+        print("add button pressed by daily")
         
     }
     

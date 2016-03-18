@@ -10,6 +10,7 @@
 		5B31D99A1C87987C00FFB6CA /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31D9991C87987C00FFB6CA /* DailyCell.swift */; };
 		5B31D99D1C87CBC600FFB6CA /* TitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31D99C1C87CBC600FFB6CA /* TitleTextField.swift */; };
 		5B790C9E1C8BB80900D9C2D1 /* DeadlineCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B790C9D1C8BB80900D9C2D1 /* DeadlineCircleView.swift */; };
+		5B920CBE1C9686E00002392D /* LongtermCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B920CBD1C9686E00002392D /* LongtermCell.swift */; };
 		5B98B3D11C8E54980015D4A3 /* SummaryEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98B3D01C8E54980015D4A3 /* SummaryEditViewController.swift */; };
 		5B98B3D31C8E5B410015D4A3 /* SummaryTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98B3D21C8E5B410015D4A3 /* SummaryTextView.swift */; };
 		5BEBC19C1C867EFF0032495D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BEBC19B1C867EFF0032495D /* AppDelegate.swift */; };
@@ -28,6 +29,7 @@
 		5B31D9991C87987C00FFB6CA /* DailyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
 		5B31D99C1C87CBC600FFB6CA /* TitleTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTextField.swift; sourceTree = "<group>"; };
 		5B790C9D1C8BB80900D9C2D1 /* DeadlineCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineCircleView.swift; sourceTree = "<group>"; };
+		5B920CBD1C9686E00002392D /* LongtermCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongtermCell.swift; sourceTree = "<group>"; };
 		5B98B3D01C8E54980015D4A3 /* SummaryEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryEditViewController.swift; sourceTree = "<group>"; };
 		5B98B3D21C8E5B410015D4A3 /* SummaryTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryTextView.swift; sourceTree = "<group>"; };
 		5BEBC1981C867EFF0032495D /* GoalsManager2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoalsManager2.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -59,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				5B31D9991C87987C00FFB6CA /* DailyCell.swift */,
+				5B920CBD1C9686E00002392D /* LongtermCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -208,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5BEBC1AE1C8684CC0032495D /* DailyTableViewController.swift in Sources */,
+				5B920CBE1C9686E00002392D /* LongtermCell.swift in Sources */,
 				5BEBC1B91C8685E60032495D /* DataManager.swift in Sources */,
 				5B31D99D1C87CBC600FFB6CA /* TitleTextField.swift in Sources */,
 				5B98B3D11C8E54980015D4A3 /* SummaryEditViewController.swift in Sources */,
