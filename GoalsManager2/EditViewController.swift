@@ -19,7 +19,7 @@ class EditViewController: UIViewController {
     
     //    MARK: - Configure UI
     
-    func configureView() {
+    func configureNavBar() {
         
         navigationItem.title = "Edit Goal"
         let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done")
@@ -40,14 +40,14 @@ class EditViewController: UIViewController {
                 summaryLabel.text = summaryTextView.placeholderText
                 print("isNew labels used")
             } else {
-
+                
                 let summary = DictionaryManager.getFromDictionary(.Summary, goalType: .Daily, goalName: name) as! String
                 
                 let storedDate = DictionaryManager.getFromDictionary(.Date, goalType: .Daily, goalName: name) as! String
                 
                 print("summary:\(summary)")
                 print("date: \(storedDate)")
-               
+                
                 dateAddedLabel.text = storedDate
                 summaryLabel.text = summary
                 print("isNotNew labels used")
@@ -61,7 +61,7 @@ class EditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureView()
+        configureNavBar()
         configureLabels()
         
         textField.delegate = textField
@@ -88,24 +88,43 @@ class EditViewController: UIViewController {
             destinationVC.previousVC = self
             
         }
-    
+        
     }
     
     
     func done() {
         
+        if textField.isFirstResponder() {
+            textField.resignFirstResponder()
+            return
+        }
+        
+        if let text = textField.text {
+            let notification = LocalNotification()
+            if GoalsData.dailyGoalsName.contains(text) {
+                notification.generateTakenNameNotification()
+                return
+            }
+            if text == "" {
+                notification.generateNoNameNotification()
+                return
+            }
+        }
+        
+        /////////
+        // save values to dictionary ///////////////////////////
+        /////////
 
         if Status.isNew {
             
-            // save values to dictionary
-
-            if let name = textField?.text {
+            
+            if let name = textField.text {
                 
                 // add title to dictionary and goals array
                 
                 if Status.isDaily == true {
-                GoalsData.dailyGoalsName.append(name)
-                DictionaryManager.addToDictionary(.Name, goalType: .Daily, data: name, goalName: name)
+                    GoalsData.dailyGoalsName.append(name)
+                    DictionaryManager.addToDictionary(.Name, goalType: .Daily, data: name, goalName: name)
                     
                 } else {
                     
@@ -126,10 +145,10 @@ class EditViewController: UIViewController {
                 
                 print("\"\(name)\" appended to daily goals array")
                 print("\(GoalsData.dailyGoalsDetails)")
-
+                
             }
             
-           
+            
         } else {
             
             // check if values match values in dictionary, if not, update
@@ -156,7 +175,7 @@ class EditViewController: UIViewController {
                 if summary != summaryLabel.text {
                     if let text = summaryLabel.text {
                         DictionaryManager.addToDictionary(.Summary, goalType: .Daily, data: text, goalName: title)
-                    
+                        
                     }
                     
                     
@@ -171,5 +190,7 @@ class EditViewController: UIViewController {
         print("popping edit view controller")
         
     }
+    
+    
     
 }

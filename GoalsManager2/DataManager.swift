@@ -182,6 +182,26 @@ class DataSaver {
         
     }
     
+    func loadDictionaries() {
+        
+        if let daily = defaults.objectForKey("dailyDetails") {
+            GoalsData.dailyGoalsDetails = daily as! [String:AnyObject]
+            print("daily saved loaded")
+        }
+        
+        if let longterm = defaults.objectForKey("longtermDetails") {
+            GoalsData.longtermGoalsDetails = longterm as! [String:AnyObject]
+            print("longterm saved loaded")
+        }
+        
+        if let completed = defaults.objectForKey("completedDetails") {
+            GoalsData.completedGoalsDetails = completed as! [String:AnyObject]
+            print("completed saved loaded")
+        }
+        
+        
+    }
+    
     
 }
 

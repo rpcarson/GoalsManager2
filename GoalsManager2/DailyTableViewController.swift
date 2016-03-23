@@ -78,6 +78,23 @@ class DailyTableViewController: UITableViewController {
         print("did select daily goal / selected cell: \(GoalsData.selectedCell)")
         
     }
+    
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == .Delete {
+            
+            let cell = GoalsData.dailyGoalsName[indexPath.row]
+            GoalsData.dailyGoalsDetails.removeValueForKey(cell)
+            GoalsData.dailyGoalsName.removeAtIndex(indexPath.row)
+            tableView.reloadData()
+            
+        }
+        
+    }
 
     
     // MARK: - Navigation

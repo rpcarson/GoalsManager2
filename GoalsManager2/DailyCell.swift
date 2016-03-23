@@ -9,6 +9,7 @@
 import UIKit
 
 class DailyCell: UITableViewCell {
+    
 
     @IBOutlet weak var titleLabel: UILabel!
    

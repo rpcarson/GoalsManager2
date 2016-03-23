@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5B31D99A1C87987C00FFB6CA /* DailyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31D9991C87987C00FFB6CA /* DailyCell.swift */; };
 		5B31D99D1C87CBC600FFB6CA /* TitleTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B31D99C1C87CBC600FFB6CA /* TitleTextField.swift */; };
+		5B6298C81C9C9AF5003A7034 /* LocalNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B6298C71C9C9AF5003A7034 /* LocalNotifications.swift */; };
 		5B790C9E1C8BB80900D9C2D1 /* DeadlineCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B790C9D1C8BB80900D9C2D1 /* DeadlineCircleView.swift */; };
 		5B920CBE1C9686E00002392D /* LongtermCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B920CBD1C9686E00002392D /* LongtermCell.swift */; };
 		5B98B3D11C8E54980015D4A3 /* SummaryEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B98B3D01C8E54980015D4A3 /* SummaryEditViewController.swift */; };
@@ -28,6 +29,7 @@
 /* Begin PBXFileReference section */
 		5B31D9991C87987C00FFB6CA /* DailyCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyCell.swift; sourceTree = "<group>"; };
 		5B31D99C1C87CBC600FFB6CA /* TitleTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleTextField.swift; sourceTree = "<group>"; };
+		5B6298C71C9C9AF5003A7034 /* LocalNotifications.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocalNotifications.swift; sourceTree = "<group>"; };
 		5B790C9D1C8BB80900D9C2D1 /* DeadlineCircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DeadlineCircleView.swift; sourceTree = "<group>"; };
 		5B920CBD1C9686E00002392D /* LongtermCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LongtermCell.swift; sourceTree = "<group>"; };
 		5B98B3D01C8E54980015D4A3 /* SummaryEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryEditViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				5BEBC1B81C8685E60032495D /* DataManager.swift */,
+				5B6298C71C9C9AF5003A7034 /* LocalNotifications.swift */,
 			);
 			name = DataModels;
 			sourceTree = "<group>";
@@ -217,6 +220,7 @@
 				5B98B3D11C8E54980015D4A3 /* SummaryEditViewController.swift in Sources */,
 				5B31D99A1C87987C00FFB6CA /* DailyCell.swift in Sources */,
 				5BEBC1B21C8684EA0032495D /* CompletedTableViewController.swift in Sources */,
+				5B6298C81C9C9AF5003A7034 /* LocalNotifications.swift in Sources */,
 				5BEBC1B41C86851C0032495D /* EditViewController.swift in Sources */,
 				5BEBC1B01C8684DD0032495D /* LongTermTableViewController.swift in Sources */,
 				5B790C9E1C8BB80900D9C2D1 /* DeadlineCircleView.swift in Sources */,

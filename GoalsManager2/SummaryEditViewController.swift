@@ -20,7 +20,7 @@ class SummaryEditViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureView()
+        configureNavBar()
         
         summaryTextView.becomeFirstResponder()
         summaryTextView.delegate = summaryTextView
@@ -33,7 +33,7 @@ class SummaryEditViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func configureView() {
+    func configureNavBar() {
         
         let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: "done")
         navigationItem.setRightBarButtonItem(doneButton, animated: true)

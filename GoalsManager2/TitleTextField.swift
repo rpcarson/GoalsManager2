@@ -8,18 +8,24 @@
 
 import UIKit
 
+
+protocol DoneButtonDelegate {
+    
+    func showHideButton()
+    
+}
+
+
 class TitleTextField: UITextField, UITextFieldDelegate {
     
-    var placeholderText = "tap to name your goal"
-    
-    
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)!
         
         font = UIFont(name: "Helvetica-Neue", size: 25)
         
     }
-
+    
+    var placeholderText = "tap to name your goal"
     
     func textFieldDidBeginEditing(textField: UITextField) {
         
@@ -27,24 +33,41 @@ class TitleTextField: UITextField, UITextFieldDelegate {
             textField.text = ""
         }
         
-        
     }
     
-    // guarantees text in field
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         
         let validText = NSCharacterSet.alphanumericCharacterSet()
         let emojis = NSCharacterSet.symbolCharacterSet()
         
+        // guarantees text in field
+
         if (textField.text?.rangeOfCharacterFromSet(validText) == nil) && (textField.text?.rangeOfCharacterFromSet(emojis) == nil) {
             
             textField.text = placeholderText
             
         }
         
-        textField.resignFirstResponder()
+        if let text = textField.text {
+            if GoalsData.dailyGoalsName.contains(text) {
+                
+                let notification = LocalNotification()
+                notification.generateTakenNameNotification()
+                textField.text = ""
+                
+            }
+            
+        }
+        
+        if textField.text != "" {
+            
+            textField.resignFirstResponder()
+            
+        }
+        
         return true
     }
     
 
+    
 }
